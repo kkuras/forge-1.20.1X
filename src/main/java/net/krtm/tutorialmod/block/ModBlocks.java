@@ -1,6 +1,7 @@
 package net.krtm.tutorialmod.block;
 
 import net.krtm.tutorialmod.TutorialMod;
+import net.krtm.tutorialmod.block.custom.CornCropBlock;
 import net.krtm.tutorialmod.block.custom.SoundBlock;
 import net.krtm.tutorialmod.block.custom.StrawberryCropBlock;
 import net.krtm.tutorialmod.item.ModItems;
@@ -71,6 +72,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> STRAWBERRY_CROP = BLOCKS.register("strawberry_crop",
             () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+
+    public static final RegistryObject<Block> CORN_CROP = BLOCKS.register("corn_crop",
+            () -> new CornCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
 
 
 
