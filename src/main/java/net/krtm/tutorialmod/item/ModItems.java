@@ -1,6 +1,7 @@
 package net.krtm.tutorialmod.item;
 
 import net.krtm.tutorialmod.TutorialMod;
+import net.krtm.tutorialmod.block.ModBlocks;
 import net.krtm.tutorialmod.item.custom.FuelItem;
 import net.krtm.tutorialmod.item.custom.MetalDetectorItem;
 import net.krtm.tutorialmod.item.custom.ModArmorItem;
@@ -52,6 +53,12 @@ public class ModItems {
     public static final RegistryObject<Item> SAPPHIRE_BOOTS = ITEMS.register("sapphire_boots",
             () -> new ArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_CROP.get(), new Item.Properties()));
+
+
+
+    
 
 
     public static void register(IEventBus eventBus) {
