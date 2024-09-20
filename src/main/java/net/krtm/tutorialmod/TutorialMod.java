@@ -5,6 +5,7 @@ import net.krtm.tutorialmod.block.ModBlocks;
 import net.krtm.tutorialmod.item.ModCreativeModTabs;
 import net.krtm.tutorialmod.item.ModItems;
 import net.krtm.tutorialmod.loot.ModLootModifiers;
+import net.krtm.tutorialmod.villager.ModVillagers;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -37,6 +38,7 @@ public class TutorialMod {
         ModBlocks.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
+        ModVillagers.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

@@ -2,7 +2,9 @@ package net.krtm.tutorialmod.event;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.krtm.tutorialmod.TutorialMod;
+import net.krtm.tutorialmod.block.ModBlocks;
 import net.krtm.tutorialmod.item.ModItems;
+import net.krtm.tutorialmod.villager.ModVillagers;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -60,7 +62,24 @@ public class ModEvents {
                     2, 8, 0.2f));
         }
 
+
+        if(event.getType() == ModVillagers.SOUND_MASTER.get()) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+
+            trades.get(1).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 16),
+                    new ItemStack(ModBlocks.SOUND_BLOCK.get(), 1),
+                    2, 8, 0.2f));
+
+            trades.get(2).add((pTrader, pRandom) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 25),
+                    new ItemStack(ModBlocks.SAPPHIRE_ORE.get(), 2),
+                    5, 12, 0.02f));
+
+        }
+
     }
+
 
     @SubscribeEvent
     public static void addCustomWarderingTrades(WandererTradesEvent event) {
