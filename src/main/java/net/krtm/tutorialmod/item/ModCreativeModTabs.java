@@ -70,6 +70,8 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModBlocks.CATMINT.get());
 
+                        pOutput.accept(ModItems.BAR_BRAWL_MUSIC_DISC.get());
+
                     })
                     .build());
 
