@@ -2,12 +2,14 @@ package net.krtm.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.krtm.tutorialmod.block.ModBlocks;
+import net.krtm.tutorialmod.entity.ModEntities;
+import net.krtm.tutorialmod.entity.client.RhinoRenderer;
 import net.krtm.tutorialmod.item.ModCreativeModTabs;
 import net.krtm.tutorialmod.item.ModItems;
 import net.krtm.tutorialmod.loot.ModLootModifiers;
 import net.krtm.tutorialmod.sound.ModSounds;
 import net.krtm.tutorialmod.villager.ModVillagers;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -21,8 +23,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.server.command.ModIdArgument;
 import org.slf4j.Logger;
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TutorialMod.MOD_ID)
@@ -42,6 +44,7 @@ public class TutorialMod {
         ModVillagers.register(modEventBus);
 
         ModSounds.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -76,6 +79,7 @@ public class TutorialMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
 
         }
     }
