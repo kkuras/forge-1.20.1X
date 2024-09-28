@@ -2,13 +2,18 @@ package net.krtm.tutorialmod;
 
 import com.mojang.logging.LogUtils;
 import net.krtm.tutorialmod.block.ModBlocks;
+import net.krtm.tutorialmod.block.entity.ModBlockEntities;
 import net.krtm.tutorialmod.entity.ModEntities;
 import net.krtm.tutorialmod.entity.client.RhinoRenderer;
 import net.krtm.tutorialmod.item.ModCreativeModTabs;
 import net.krtm.tutorialmod.item.ModItems;
 import net.krtm.tutorialmod.loot.ModLootModifiers;
+import net.krtm.tutorialmod.screen.GemPolishingStationMenu;
+import net.krtm.tutorialmod.screen.GemPolishingStationScreen;
+import net.krtm.tutorialmod.screen.ModMenuTypes;
 import net.krtm.tutorialmod.sound.ModSounds;
 import net.krtm.tutorialmod.villager.ModVillagers;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -46,6 +51,9 @@ public class TutorialMod {
         ModSounds.register(modEventBus);
         ModEntities.register(modEventBus);
 
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -80,6 +88,8 @@ public class TutorialMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
+
+            MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
 
         }
     }

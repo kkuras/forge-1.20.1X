@@ -75,6 +75,7 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModItems.BAR_BRAWL_MUSIC_DISC.get());
 
+                        pOutput.accept(ModBlocks.GEM_POLISHING_STATION.get());
                     })
                     .build());
 

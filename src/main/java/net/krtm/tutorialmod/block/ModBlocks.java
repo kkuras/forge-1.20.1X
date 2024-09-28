@@ -2,6 +2,7 @@ package net.krtm.tutorialmod.block;
 
 import net.krtm.tutorialmod.TutorialMod;
 import net.krtm.tutorialmod.block.custom.CornCropBlock;
+import net.krtm.tutorialmod.block.custom.GemPolishingStationBlock;
 import net.krtm.tutorialmod.block.custom.SoundBlock;
 import net.krtm.tutorialmod.block.custom.StrawberryCropBlock;
 import net.krtm.tutorialmod.item.ModItems;
@@ -88,6 +89,9 @@ public class ModBlocks {
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.CATMINT,
                     BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).noOcclusion()));
 
+
+    public static final RegistryObject<Block> GEM_POLISHING_STATION = registerBlock("gem_polishing_station",
+            () -> new GemPolishingStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST).noOcclusion()));
 
 
 
