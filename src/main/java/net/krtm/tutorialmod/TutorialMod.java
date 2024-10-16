@@ -8,6 +8,7 @@ import net.krtm.tutorialmod.entity.client.RhinoRenderer;
 import net.krtm.tutorialmod.item.ModCreativeModTabs;
 import net.krtm.tutorialmod.item.ModItems;
 import net.krtm.tutorialmod.loot.ModLootModifiers;
+import net.krtm.tutorialmod.recipe.ModRecipes;
 import net.krtm.tutorialmod.screen.GemPolishingStationMenu;
 import net.krtm.tutorialmod.screen.GemPolishingStationScreen;
 import net.krtm.tutorialmod.screen.ModMenuTypes;
@@ -53,6 +54,8 @@ public class TutorialMod {
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

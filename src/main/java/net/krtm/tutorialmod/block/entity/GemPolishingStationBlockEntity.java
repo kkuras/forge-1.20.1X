@@ -1,6 +1,6 @@
 package net.krtm.tutorialmod.block.entity;
 
-import net.krtm.tutorialmod.item.ModItems;
+import net.krtm.tutorialmod.recipe.GemPolishingRecipe;
 import net.krtm.tutorialmod.screen.GemPolishingStationMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,7 +17,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -26,6 +25,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class GemPolishingStationBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -39,8 +40,6 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 78;
-
-
 
     public GemPolishingStationBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.GEM_POLISHING_BE.get(), pPos, pBlockState);
@@ -146,25 +145,36 @@ public class GemPolishingStationBlockEntity extends BlockEntity implements MenuP
 
     private void resetProgress() {
         progress = 0;
-
     }
 
     private void craftItem() {
-        ItemStack result = new ItemStack(ModItems.SAPPHIRE.get(), 1);
+        Optional<GemPolishingRecipe> recipe = getCurrentRecipe();
+        ItemStack result = recipe.get().getResultItem(null);
+
         this.itemHandler.extractItem(INPUT_SLOT, 1, false);
 
         this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
                 this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
-
     }
 
     private boolean hasRecipe() {
-        boolean hasCraftingItem = this.itemHandler.getStackInSlot(INPUT_SLOT).getItem() == ModItems.RAW_SAPPHIRE.get();
+        Optional<GemPolishingRecipe> recipe = getCurrentRecipe();
 
-        ItemStack result = new ItemStack(ModItems.SAPPHIRE.get());
+        if(recipe.isEmpty()) {
+            return false;
+        }
+        ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
-        return  hasCraftingItem && canInsertAmountIntoOutpotSlot(result.getCount()) && canInsertItemintoOutputSlot(result.getItem());
+        return canInsertAmountIntoOutpotSlot(result.getCount()) && canInsertItemintoOutputSlot(result.getItem());
+    }
 
+    private Optional<GemPolishingRecipe> getCurrentRecipe() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for(int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, this.itemHandler.getStackInSlot(i));
+        }
+
+        return this.level.getRecipeManager().getRecipeFor(GemPolishingRecipe.Type.INSTANCE, inventory, level);
     }
 
     private boolean canInsertItemintoOutputSlot(Item item) {
