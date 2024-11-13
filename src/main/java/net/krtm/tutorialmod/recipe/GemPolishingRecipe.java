@@ -34,6 +34,12 @@ public class GemPolishingRecipe implements Recipe<SimpleContainer> {
         return inputItems.get(0).test(pContainer.getItem(0));
     }
 
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return inputItems;
+    }
+
     @Override
     public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
         return output.copy();
