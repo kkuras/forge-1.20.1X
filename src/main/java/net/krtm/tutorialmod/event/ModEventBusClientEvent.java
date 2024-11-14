@@ -1,6 +1,9 @@
 package net.krtm.tutorialmod.event;
 
 import net.krtm.tutorialmod.TutorialMod;
+import net.krtm.tutorialmod.block.ModBlocks;
+import net.krtm.tutorialmod.block.entity.ModBlockEntities;
+import net.krtm.tutorialmod.block.entity.renderer.GemPolishingBlockEntityRenderer;
 import net.krtm.tutorialmod.entity.client.ModModelLayers;
 import net.krtm.tutorialmod.entity.client.RhinoModel;
 import net.minecraftforge.api.distmarker.Dist;
@@ -14,5 +17,10 @@ public class ModEventBusClientEvent {
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.RHINO_LAYER, RhinoModel::createBodyLayer);
 
+    }
+
+    @SubscribeEvent
+    public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.GEM_POLISHING_BE.get(), GemPolishingBlockEntityRenderer::new);
     }
 }
