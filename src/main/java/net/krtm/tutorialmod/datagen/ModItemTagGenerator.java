@@ -1,6 +1,7 @@
 package net.krtm.tutorialmod.datagen;
 
 import net.krtm.tutorialmod.TutorialMod;
+import net.krtm.tutorialmod.block.ModBlocks;
 import net.krtm.tutorialmod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -29,5 +30,14 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.BAR_BRAWL_MUSIC_DISC.get());
         this.tag(ItemTags.CREEPER_DROP_MUSIC_DISCS)
                 .add(ModItems.BAR_BRAWL_MUSIC_DISC.get());
+
+        this.tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.PINE_LOG.get().asItem())
+                .add(ModBlocks.PINE_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_PINE_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_PINE_LOG.get().asItem());
+
+        this.tag(ItemTags.PLANKS)
+                .add(ModBlocks.PINE_PLANKS.get().asItem());
     }
 }
