@@ -32,6 +32,9 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModItems.RHINO_SPAWN_EGG.get());
 
+                        pOutput.accept(ModItems.PINE_HANGING_SIGN.get());
+                        pOutput.accept(ModItems.PINE_SIGN.get());
+
                         pOutput.accept(ModItems.SAPPHIRE_STAFF.get());
 
                         pOutput.accept(ModItems.SAPPHIRE_SWORD.get());
@@ -82,8 +85,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.STRIPPED_PINE_LOG.get());
                         pOutput.accept(ModBlocks.STRIPPED_PINE_WOOD.get());
                         pOutput.accept(ModBlocks.PINE_PLANKS.get());
-
                         pOutput.accept(ModBlocks.PINE_LEAVES.get());
+
+
                     })
                     .build());
 

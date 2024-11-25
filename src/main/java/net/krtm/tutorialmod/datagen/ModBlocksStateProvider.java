@@ -3,6 +3,7 @@ package net.krtm.tutorialmod.datagen;
 import net.krtm.tutorialmod.TutorialMod;
 import net.krtm.tutorialmod.block.ModBlocks;
 import net.krtm.tutorialmod.block.custom.CornCropBlock;
+import net.krtm.tutorialmod.block.custom.ModStandingSignBlock;
 import net.krtm.tutorialmod.block.custom.StrawberryCropBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -77,6 +78,30 @@ public class ModBlocksStateProvider extends BlockStateProvider {
 
         leavesBlock(ModBlocks.PINE_LEAVES);
 
+
+        signBlock(((ModStandingSignBlock) ModBlocks.PINE_SIGN.get()), ((WallSignBlock) ModBlocks.PINE_WALL_SIGN.get()),
+                blockTexture(ModBlocks.PINE_PLANKS.get()));
+
+        hangingSignBlock(ModBlocks.PINE_HANGING_SIGN.get(), ModBlocks.PINE_WALL_HANGING_SIGN.get(), blockTexture(ModBlocks.PINE_PLANKS.get()));
+
+    }
+
+    public void hangingSignBlock(Block signBlock, Block wallSignBlock, ResourceLocation texture) {
+        ModelFile sign = models().sign(name(signBlock), texture);
+        hangingSignBlock(signBlock, wallSignBlock, sign);
+    }
+
+    public void hangingSignBlock(Block signBlock, Block wallSignBlock, ModelFile sign) {
+        simpleBlock(signBlock, sign);
+        simpleBlock(wallSignBlock, sign);
+    }
+
+    private String name(Block block) {
+        return key(block).getPath();
+    }
+
+    private ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
     }
 
     private void leavesBlock(RegistryObject<Block> blockRegistryObject) {

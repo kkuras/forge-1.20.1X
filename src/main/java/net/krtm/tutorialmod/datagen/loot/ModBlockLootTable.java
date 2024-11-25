@@ -91,6 +91,16 @@ public class ModBlockLootTable extends BlockLootSubProvider {
         this.add(ModBlocks.PINE_LEAVES.get(), block ->
                 createLeavesDrops(block, ModBlocks.SAPPHIRE_BLOCK.get(), NORMAL_LEAVES_SAPLING_CHANCES)); // TODO: change to sappling
 
+
+        this.add(ModBlocks.PINE_SIGN.get(), block ->
+                createSingleItemTable(ModBlocks.PINE_SIGN.get()));
+        this.add(ModBlocks.PINE_WALL_SIGN.get(), block ->
+                createSingleItemTable(ModBlocks.PINE_WALL_SIGN.get()));
+        this.add(ModBlocks.PINE_HANGING_SIGN.get(), block ->
+                createSingleItemTable(ModBlocks.PINE_HANGING_SIGN.get()));
+        this.add(ModBlocks.PINE_WALL_HANGING_SIGN.get(), block ->
+                createSingleItemTable(ModBlocks.PINE_WALL_HANGING_SIGN.get()));
+
     }
 
     protected LootTable.Builder createCopperLikeOreDrops(Block pBlock, Item item) {

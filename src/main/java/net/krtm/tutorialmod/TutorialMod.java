@@ -13,8 +13,10 @@ import net.krtm.tutorialmod.screen.GemPolishingStationMenu;
 import net.krtm.tutorialmod.screen.GemPolishingStationScreen;
 import net.krtm.tutorialmod.screen.ModMenuTypes;
 import net.krtm.tutorialmod.sound.ModSounds;
+import net.krtm.tutorialmod.util.ModWoodTypes;
 import net.krtm.tutorialmod.villager.ModVillagers;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -90,6 +92,8 @@ public class TutorialMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            Sheets.addWoodType(ModWoodTypes.PINE);
+
             EntityRenderers.register(ModEntities.RHINO.get(), RhinoRenderer::new);
 
             MenuScreens.register(ModMenuTypes.GEM_POLISHING_MENU.get(), GemPolishingStationScreen::new);
