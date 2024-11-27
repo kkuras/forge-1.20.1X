@@ -6,6 +6,8 @@ import net.krtm.tutorialmod.block.entity.ModBlockEntities;
 import net.krtm.tutorialmod.block.entity.renderer.GemPolishingBlockEntityRenderer;
 import net.krtm.tutorialmod.entity.client.ModModelLayers;
 import net.krtm.tutorialmod.entity.client.RhinoModel;
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,6 +20,9 @@ public class ModEventBusClientEvent {
     @SubscribeEvent
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.RHINO_LAYER, RhinoModel::createBodyLayer);
+
+        event.registerLayerDefinition(ModModelLayers.PINE_BOAT_LAYER, BoatModel::createBodyModel);
+        event.registerLayerDefinition(ModModelLayers.PINE_CHEST_BOAT_LAYER, ChestBoatModel::createBodyModel);
 
     }
 

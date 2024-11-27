@@ -20,6 +20,9 @@
 
   "item.tutorialmod.strawberry_seeds": "Strawberry Seeds",
 
+  "item.tutorialmod.pine_boat": "Pine Boat",
+  "item.tutorialmod.pine_chest_boat": "Pine Chest Boat",
+
   "item.tutorialmod.corn_seeds": "Corn Seeds",
   "item.tutorialmod.corn": "Corn",
 
@@ -63,6 +66,8 @@
   "tooltip.tutorialmod.metal_detector.tooltip": "Finds valuables underground!",
 
   "entity.minecraft.villager.tutorialmod.soundmaster": "Sound Master",
+
+  "entity.tutorialmod.mod_chest_boat": "Boat With Chest",
 
   "sounds.tutorialmod.metal_detector_found_ore": "Metal Detector Jingle",
 

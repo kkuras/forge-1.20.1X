@@ -3,9 +3,11 @@ package net.krtm.tutorialmod.item;
 import net.krtm.tutorialmod.TutorialMod;
 import net.krtm.tutorialmod.block.ModBlocks;
 import net.krtm.tutorialmod.entity.ModEntities;
+import net.krtm.tutorialmod.entity.custom.ModBoatEntity;
 import net.krtm.tutorialmod.item.custom.FuelItem;
 import net.krtm.tutorialmod.item.custom.MetalDetectorItem;
 import net.krtm.tutorialmod.item.custom.ModArmorItem;
+import net.krtm.tutorialmod.item.custom.ModBoatItem;
 import net.krtm.tutorialmod.sound.ModSounds;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -75,8 +77,11 @@ public class ModItems {
     public static final RegistryObject<Item> PINE_HANGING_SIGN = ITEMS.register("pine_hanging_sign",
             () -> new HangingSignItem(ModBlocks.PINE_HANGING_SIGN.get(), ModBlocks.PINE_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16) ));
 
+    public static final RegistryObject<Item> PINE_BOAT = ITEMS.register("pine_boat",
+            () -> new ModBoatItem(false, ModBoatEntity.Type.PINE, new Item.Properties()));
+    public static final RegistryObject<Item> PINE_CHEST_BOAT = ITEMS.register("pine_chest_boat",
+            () -> new ModBoatItem(true, ModBoatEntity.Type.PINE, new Item.Properties()));
 
-    
 
 
     public static void register(IEventBus eventBus) {
