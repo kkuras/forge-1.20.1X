@@ -88,8 +88,9 @@ public class ModBlockLootTable extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_PINE_LOG.get());
         this.dropSelf(ModBlocks.PINE_PLANKS.get());
 
+
         this.add(ModBlocks.PINE_LEAVES.get(), block ->
-                createLeavesDrops(block, ModBlocks.SAPPHIRE_BLOCK.get(), NORMAL_LEAVES_SAPLING_CHANCES)); // TODO: change to sappling
+                createLeavesDrops(block, ModBlocks.PINE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
 
         this.add(ModBlocks.PINE_SIGN.get(), block ->
@@ -100,6 +101,15 @@ public class ModBlockLootTable extends BlockLootSubProvider {
                 createSingleItemTable(ModBlocks.PINE_HANGING_SIGN.get()));
         this.add(ModBlocks.PINE_WALL_HANGING_SIGN.get(), block ->
                 createSingleItemTable(ModBlocks.PINE_WALL_HANGING_SIGN.get()));
+
+        this.dropSelf(ModBlocks.PINE_SAPLING.get());
+
+
+
+
+
+
+
 
     }
 

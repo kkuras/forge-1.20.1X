@@ -5,6 +5,7 @@ import net.krtm.tutorialmod.block.custom.*;
 import net.krtm.tutorialmod.item.ModItems;
 import net.krtm.tutorialmod.sound.ModSounds;
 import net.krtm.tutorialmod.util.ModWoodTypes;
+import net.krtm.tutorialmod.worldgen.tree.PineTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
@@ -110,12 +111,10 @@ public class ModBlocks {
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
                 }
-
                 @Override
                 public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 20;
                 }
-
                 @Override
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 5;
@@ -127,12 +126,10 @@ public class ModBlocks {
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
                 }
-
                 @Override
                 public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 60;
                 }
-
                 @Override
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 30;
@@ -155,6 +152,8 @@ public class ModBlocks {
 
 
 
+    public static final RegistryObject<Block> PINE_SAPLING = registerBlock("pine_sapling",
+            () -> new SaplingBlock(new PineTreeGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 
 
