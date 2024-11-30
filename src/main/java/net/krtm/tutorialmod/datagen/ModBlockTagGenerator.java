@@ -28,7 +28,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.RAW_SAPPHIRE_BLOCK.get(),
                         ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get(),
                         ModBlocks.NETHER_SAPPHIRE_ORE.get(),
-                        ModBlocks.END_SAPPHIRE_ORE.get(),
+                        ModBlocks.END_STONE_SAPPHIRE_ORE.get(),
                         ModBlocks.SAPPHIRE_ORE.get(),
                         ModBlocks.SOUND_BLOCK.get()
 
@@ -45,7 +45,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.NETHER_SAPPHIRE_ORE.get());
 
         this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
-                .add(ModBlocks.END_SAPPHIRE_ORE.get());
+                .add(ModBlocks.END_STONE_SAPPHIRE_ORE.get());
         this.tag(ModTags.Blocks.NEEDS_SAPPHIRE_TOOL)
                 .add(ModBlocks.SOUND_BLOCK.get());
 

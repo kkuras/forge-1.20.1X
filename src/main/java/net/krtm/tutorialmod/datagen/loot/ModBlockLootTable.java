@@ -39,8 +39,8 @@ public class ModBlockLootTable extends BlockLootSubProvider {
                 block -> createCopperLikeOreDrops(ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get(), ModItems.RAW_SAPPHIRE.get()));
         this.add(ModBlocks.NETHER_SAPPHIRE_ORE.get(),
                 block -> createCopperLikeOreDrops(ModBlocks.NETHER_SAPPHIRE_ORE.get(), ModItems.RAW_SAPPHIRE.get()));
-        this.add(ModBlocks.END_SAPPHIRE_ORE.get(),
-                block -> createCopperLikeOreDrops(ModBlocks.END_SAPPHIRE_ORE.get(), ModItems.RAW_SAPPHIRE.get()));
+        this.add(ModBlocks.END_STONE_SAPPHIRE_ORE.get(),
+                block -> createCopperLikeOreDrops(ModBlocks.END_STONE_SAPPHIRE_ORE.get(), ModItems.RAW_SAPPHIRE.get()));
 
         this.dropSelf(ModBlocks.SAPPHIRE_STAIRS.get());
         this.dropSelf(ModBlocks.SAPPHIRE_BUTTON.get());

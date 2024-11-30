@@ -32,7 +32,7 @@ public class ModBlocksStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SAPPHIRE_ORE);
         blockWithItem(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
         blockWithItem(ModBlocks.NETHER_SAPPHIRE_ORE);
-        blockWithItem(ModBlocks.END_SAPPHIRE_ORE);
+        blockWithItem(ModBlocks.END_STONE_SAPPHIRE_ORE);
 
         blockWithItem(ModBlocks.SOUND_BLOCK);
 
